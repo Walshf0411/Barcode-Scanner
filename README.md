@@ -1,5 +1,5 @@
 # Barcode-Scanner
-A barcode scanner library with example. Based on Google Vision and androidhive's library for barcode scanner.
+A barcode scanner library with example. Based on Google Vision and androidhive's ravi8x's library for barcode scanner.
 
 ## How to use
 Add jitpack to project level dependencies.
