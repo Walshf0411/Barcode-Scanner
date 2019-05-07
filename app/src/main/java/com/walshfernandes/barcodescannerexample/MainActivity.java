@@ -1,5 +1,6 @@
 package com.walshfernandes.barcodescannerexample;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity implements BarcodeReader.Bar
     @Override
     public void onScanned(Barcode barcode) {
         Log.i("TAG", "Barcode text: " + barcode.displayValue);
+        Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        intent.putExtra("barcode", barcode.displayValue);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     @Override

@@ -12,4 +12,14 @@
         android:layout_height="match_parent"
         android:name="com.walshfernandes.barcodescanner.BarcodeReader"
         />
+    <com.walshfernandes.barcodescanner.ScannerOverlay
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#44000000"
+        app:line_color="#7323DC"
+        app:line_speed="6"
+        app:line_width="4"
+        app:square_height="200"
+        app:square_width="200" />
+
 </android.support.constraint.ConstraintLayout>
