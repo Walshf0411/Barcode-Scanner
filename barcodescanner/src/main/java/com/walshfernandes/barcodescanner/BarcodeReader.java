@@ -23,7 +23,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.GestureDetector;
@@ -247,9 +249,23 @@ public class BarcodeReader extends Fragment implements View.OnTouchListener, Bar
         // Creates and starts the camera.  Note that this uses a higher resolution in comparison
         // to other detection examples to enable the barcode detector to detect small barcodes
         // at long distances.
+
+        int width = 1600, height=1024;
+        // getting the display metrics
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        // get the fragment
+        FragmentActivity fragmentActivity = getActivity();
+
+        if (fragmentActivity != null) {
+            // get the window manager and get the height and the width
+            fragmentActivity.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+            height = displaymetrics.heightPixels;
+            width = displaymetrics.widthPixels;
+        }
+
         CameraSource.Builder builder = new CameraSource.Builder(getActivity(), barcodeDetector)
                 .setFacing(CameraSource.CAMERA_FACING_BACK)
-                .setRequestedPreviewSize(1600, 1024)
+                .setRequestedPreviewSize(width, height)
                 .setRequestedFps(15.0f);
 
         // make sure that auto focus is an available option

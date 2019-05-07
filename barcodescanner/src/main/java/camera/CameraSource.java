@@ -225,6 +225,7 @@ public class CameraSource {
             if ((width <= 0) || (width > MAX) || (height <= 0) || (height > MAX)) {
                 throw new IllegalArgumentException("Invalid preview size: " + width + "x" + height);
             }
+            Log.i("MYTAG", "Preview Size: " + width + "x" + height);
             mCameraSource.mRequestedPreviewWidth = width;
             mCameraSource.mRequestedPreviewHeight = height;
             return this;
